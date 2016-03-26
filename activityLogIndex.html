@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
+<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
+
+<!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.js"></script>-->
+
+
+<!--<script src="C:\wamp\www\Challenge 1\script.js"></script>-->
+
+<script src="activityLogScript.js"></script>
+
+<style>
+
+.ui-page
+{
+background: #000;
+background-image:url("images/mountains.png");
+background-size:cover;  
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+
+</style>
+
+</head>
+<body>
+
+<!--Login Page-->
+<div data-role="page" id="login">
+
+	<div data-role = "header">
+	<h1><b>Login</b></h1><a href = "#newAccount" class = "ui-btn"><button data-theme = "a" data-icon = "add">Create New Account</button></a>
+	</div>
+	
+	<div data-role = "main" class = "ui-content">
+		<center><input id = "username" type = "text" placeholder = "username"/>
+		<input id = "password" type = "password" placeholder = "password"/></center>
+		<a href = "#mainpage"><button id = "loginButton" data-theme = "a" data-icon = "arrow-r" data-iconpos="right">login</button></a>
+	</div>
+
+</div>
+
+
+<!--Create New Account Page-->
+<div data-role = "page" id = "newAccount">
+
+	<div data-role = "header">
+		<h1><b>Create New Account</b></h1>
+	</div>
+	
+	<div data-role = "main" class = "ui-content">
+	<center>
+		<input id = "newUsername" type = "text" placeholder = "Enter a new username"/>
+		<input id = "newPassword" type = "password" placeholder = "Enter a password"/>
+		<input id = "retypePass" type = "password" placeholder = "Retype password"/>
+		<button id = "newAcc" data-theme = "a" data-icon = "add">Create Account</button>
+	</center>
+	</div>
+</div>
+
+
+<!--Main Page-->
+<div data-role="page" id="mainpage">
+	<div data-role="header">
+		<center><h1>Activity Log</center></h1><a href = "#addActivityPage" class = "ui-btn ui-btn-inline"><button data-theme = "a" data-icon = "add">Add Activity</button></a><button data-theme = "a" data-icon = "back" id = "logoutButton">Logout</button>
+	</div>
+	<div data-role="main" class="ui-content">
+		<ul id = "dateList" data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+		</ul>
+	</div>
+
+</div>
+
+<!--Activity List Page-->
+<div data-role = "page" id = "activities">
+	<div data-role="header">
+		<center><h1>Activities</center></h1>
+	</div>
+	<div data-role="main" class="ui-content">
+	
+		<ul id = "actList" data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+		</ul>
+		
+	</div>
+</div>
+
+<!--More Info On Activity Page-->
+<div data-role = "page" id = "moreInfo">
+
+	<div data-role = "header">
+	<h1 id = "moreInfoTitle">Expanded Information</h1>
+	</div>
+	
+	<div data-role = "main" class = "ui-content" id = "#moreInfoText" style = "background-image: url('images/paper.png');">
+		<center>
+		<p id = "stt">  t </p>
+		<p id = "ent"> a  </p>		
+		<p id = "nt"> g</p>
+		</center>
+	</div>
+			<button id="comp">Toggle Complete</button>
+</div>
+
+<!--Add Activity Page-->
+<div data-role= "page" id="addActivityPage">
+  <div data-role="header">
+  <h1>Add a Activity</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+		<center><input type = "text" id = "new-activity" placeholder = "What's your activity?" />
+		<input type = "date" id = "actDate" placeholder = "Enter the date"/>
+        <input type=time min=9:00 max=17:00 step=900 id = "startTime"><input type=time min=9:00 max=17:00 step=900 id = "endTime">
+		<textarea id = "note" placeholder = "Enter a note!"></textarea>
+		<button id="add">Add Activity</button></center>
+  </div>
+  
+</div>
+
+</body>
+</html>
